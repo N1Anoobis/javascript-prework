@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Merienda', cursive;
+}
+
+*:focus {
+  outline: 0;
+}
+
+.container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin-top: 100px;
+}
+
+.container h1 {
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.container .btn {
+  margin: auto;
+  margin-top: 50px;
+}
+
+.container .btn button {
+  margin: 30px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 140px;
+  border-style: solid;
+  background-color: white;
+  border-color: greenyellow;
+  transition: .2s;
+}
+
+.container .btn button:hover {
+  border-color: greenyellow;
+  background-color: greenyellow;
+}
+
+.container .msg {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: auto;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.container .msg div:nth-child(2) {
+  font-weight: bolder;
+  margin-top: 30px;
+  margin-bottom: -150px;
+}
+
+.container .scores {
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 200px;
+}
+
+.container .scores .trick {
+  margin: auto;
+  text-align: center;
+  width: 33%;
+}
+
+.container .scores .trick p {
+  font-size: 40px;
+  font-weight: bolder;
+}
+/*# sourceMappingURL=style.css.map */
