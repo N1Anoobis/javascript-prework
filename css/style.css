@@ -25,6 +25,8 @@
 .container .btn {
   margin: auto;
   margin-top: 50px;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .container .btn button {
@@ -59,7 +61,8 @@
 .container .msg div:nth-child(2) {
   font-weight: bolder;
   margin-top: 30px;
-  margin-bottom: -150px;
+  margin-bottom: -190px;
+  text-align: center;
 }
 
 .container .scores {
@@ -77,5 +80,33 @@
 .container .scores .trick p {
   font-size: 40px;
   font-weight: bolder;
+}
+
+.container .lds-dual-ring {
+  display: none;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+.container .lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #e01313;
+  border-color: #c52020 transparent #cc1a1a transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(460deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */

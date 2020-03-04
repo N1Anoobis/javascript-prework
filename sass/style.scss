@@ -22,7 +22,7 @@
     .btn {
         margin: auto;
         margin-top: 50px;
-
+display: flex;
         button {
             margin: 30px;
             padding: 10px 20px;
@@ -52,12 +52,14 @@
         div:nth-child(2) {
             font-weight: bolder;
             margin-top: 30px;
-            margin-bottom: -150px;
+            margin-bottom: -190px;
+            text-align: center;
         }
     }
 
     .scores {
         display: flex;
+
         margin-top: 200px;
        
         .trick {
@@ -71,4 +73,32 @@
             }
         }
     }
+
+    .lds-dual-ring {
+        display: none;
+        width: 80px;
+        height: 80px;
+        margin: auto;
+      
+      &:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid rgb(224, 19, 19);
+        border-color: rgb(197, 32, 32) transparent rgb(204, 26, 26) transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }}
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(460deg);
+        }
+      }
+      
+
 }
