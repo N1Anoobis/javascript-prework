@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
+	<link href="https://fonts.googleapis.com/css?family=Merienda:400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 	<div class="container">
-		<div id="buttons">
+		<h1>Kliknij aby zagrac</h1>
+		<div class="btn" id="buttons">
 			<button id="play-paper">papier</button>
 			<button id="play-rock">kamien</button>
+
 			<button id="play-scissors">nozyce</button>
 		</div>
-		<div id="messages"></div>
-	</div>
-	<script src="js/functions.js"></script>
-	<script src="js/script.js"></script>
+		<div class="msg" id="messages"></div>
+
+		<div class="scores">
+			<div class="trick">Wins:
+				<p id="wins">0</p>
+			</div>
+			<div class="trick">Losses:
+				<p id="losses">0</p>
+			</div>
+			<div class="trick">Draws
+				<p id="draws">0</p>
+			</div>
+		</div>
+
+
+
+		<script src="js/functions.js"></script>
+		<script src="js/script.js"></script>
 </body>
+
 </html>
