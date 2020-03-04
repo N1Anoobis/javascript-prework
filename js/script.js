@@ -1,4 +1,18 @@
 function playGame(playerInput) {
+
+//beagining of program
+let randomNumber = Math.floor(Math.random() * 3 + 1);
+clearMessages()
+
+//player choise passed to getMoveName
+let playerMove = getMoveName(playerInput);
+
+//computer choise passed to getMoveName
+let computerMove = getMoveName(randomNumber);
+
+// player and computer args passed to displayResult
+displayResult(computerMove, playerMove);
+
     function getMoveName(argMoveId) {
         console.log(argMoveId);
         if (argMoveId == 1) {
@@ -9,7 +23,7 @@ function playGame(playerInput) {
             return 'nozyce';
         }
     }
-    //
+    
     function displayResult(argComputerMove, argPlayerMove) {
         printMessage(`Zagrałem ${argComputerMove}, a Ty ${argPlayerMove}`);
 
@@ -24,34 +38,6 @@ function playGame(playerInput) {
         } else {
             printMessage('Przegrywasz');
         }
-
-    }
-    //beagining of program
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    clearMessages()
-
-
-    //player choise passed to getMoveName
-    let playerMove = getMoveName(playerInput);
-
-
-    //computer choise passed to getMoveName
-    let computerMove = getMoveName(randomNumber);
-
-
-    // player and computer args passed to displayResult
-    displayResult(computerMove, playerMove);
-
-
-    //display in browser
-    function printMessage(msg) {
-        let div = document.createElement('div');
-        div.innerHTML = msg;
-        document.getElementById('messages').appendChild(div);
-    }
-
-    function clearMessages() {
-        document.getElementById('messages').innerHTML = '';
     }
 }
 
