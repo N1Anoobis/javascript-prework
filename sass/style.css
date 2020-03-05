@@ -18,7 +18,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 100px;
+  max-width: 800px;
+  margin: 100px auto 0 auto;
 }
 
 .container h1 {
@@ -93,14 +94,14 @@
   font-weight: bolder;
 }
 
-.container .lds-dual-ring {
+.container .sp-vortex {
   display: none;
   width: 80px;
   height: 80px;
-  margin: auto;
+  margin: 50px auto 0 auto;
 }
 
-.container .lds-dual-ring:after {
+.container .sp-vortex:after {
   content: " ";
   display: block;
   width: 64px;
@@ -133,5 +134,52 @@
     -webkit-transform: rotate(460deg);
             transform: rotate(460deg);
   }
+}
+
+.log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: 75vh;
+  left: 0;
+  width: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+
+.log button {
+  margin-left: 50px;
+  width: 3%;
+  height: 5%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  background-color: silver;
+  border-style: none;
+}
+
+.log .num-of-games {
+  width: 15%;
+}
+
+.log .log-display {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #77d5f0;
+  margin-top: 20px;
+  display: none;
+}
+
+.log .log-display p {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -30,13 +30,20 @@ function playGame(playerInput) {
             printMessage('Przegrywasz');
             counter('lose');
         }
+        playersMoves.push([argComputerMove, argPlayerMove]);
+        playersMoves.forEach((item, key) => {
+            item.id = key;
+            // document.getElementById("myDIV").appendChild(item)
 
+        })
     }
 
 
 
     function counter(score) {
-        games += 1;
+        // games += 1;
+        let setGames = document.getElementById("num-p");
+        setGames.innerHTML = games += 1;
         console.log(games)
         if (score === 'win') {
             let setWins = document.getElementById("wins");
@@ -49,7 +56,32 @@ function playGame(playerInput) {
             let setDraws = document.getElementById("draws");
             setDraws.innerHTML = draws += 1;
         }
+        var paragrafMsg = document.createElement("p");
+        var date = new Date();
+        // get the date as a string
+        var n = date.toDateString();
+        // get the time as a string
+        var time = date.toLocaleTimeString();
+
+        // log the date in the browser console
+        // console.log('date:', n);
+        // log the time in the browser console
+        // console.log('time:', time);
+        paragrafMsg.innerHTML = n + "" + time + "" + " " + score;
+        document.getElementById("myDIV").appendChild(paragrafMsg);
+        GeneralArray.push(paragrafMsg);
+        // GeneralArray.push(...playersMoves)
+        // paragrafMsg.textContent = "";
+
+        GeneralArray.forEach((item, key) => {
+            item.id = key;
+            document.getElementById("myDIV").appendChild(item)
+
+        })
     }
+
+
+
     //beagining of program
     let randomNumber = Math.floor(Math.random() * 3 + 1);
     clearMessages()
@@ -68,6 +100,11 @@ function playGame(playerInput) {
 
 
 }
+
+function log() {
+   
+}
+
 let games = 0;
 let wins = 0;
 let draws = 0;
@@ -87,6 +124,26 @@ document.getElementById('play-scissors').addEventListener('click', function () {
     playGame(3);
 });
 
+document.getElementById('log').addEventListener('click',
+    function () {
+        var x = document.getElementById("myDIV");
+        let btn = document.getElementById("log");
+        if (x.style.display === "block") {
+            console.log(x.display)
+            x.style.display = "none";
+            
+           
+            btn.style.transform = 'rotate(-270deg)';
+        } else {
+            x.style.display = "block";
+            // let btn = document.getElementById("log");
+            btn.style.transform = 'rotate(270deg)';
+        }
+
+    });
+
+
+
 function loaderDelay() {
     document.getElementById("scores").style.display = "none";
     document.getElementById("messages").style.display = "none";
@@ -96,5 +153,30 @@ function loaderDelay() {
         document.getElementById("messages").style.display = "block";
         document.getElementById("loader").style.display = "none"
     }, 1000);
+    // function alertConsole() {
+    //     alert(`${playersMoves[e.target.id]}`) 
+}
+document.getElementById('myDIV').addEventListener
 
-};
+// document.querySelectorAll('.log-display').addEventListener
+('click', function (e) {
+    // console.log(e.target)
+
+    // if (!e.target) {
+    //     return;
+    // }
+
+    // if (e.target.matches('p')) {
+
+    alert(`computer move: ${playersMoves[e.target.id][0]}, player move: ${playersMoves[e.target.id][1]}`)
+    // confirm(`${GeneralArray[e.target.id].innerText}`)
+    // }
+
+
+});
+// };
+
+
+
+const playersMoves = [];
+const GeneralArray = [];
