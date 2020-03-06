@@ -15,12 +15,28 @@
   -ms-flex-direction: column;
       flex-direction: column;
   max-width: 800px;
-  margin: 100px auto 0 auto;
+  margin: 30px auto 0 auto;
+}
+
+.container .difficulty {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.container .difficulty .radio-box {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+}
+
+.container .difficulty .radio-box .radio-field {
+  margin: 0 10px;
 }
 
 .container h1 {
   margin: auto;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .container .btn {
@@ -57,6 +73,7 @@
   margin: auto;
   font-size: 30px;
   margin-top: 50px;
+  text-align: center;
 }
 
 .container .msg div:nth-child(2) {
@@ -142,7 +159,7 @@
 
 .log .log-display {
   width: 100%;
-  padding: 50px 0;
+  padding: 0;
   background-color: #77d5f0;
   margin-top: 20px;
   display: none;

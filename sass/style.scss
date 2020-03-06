@@ -12,13 +12,27 @@
 .container {
     display: flex;
     flex-direction: column;
-    // margin-top: 100px;
     max-width: 800px;
-    margin: 100px auto 0 auto;
+    margin: 30px auto 0 auto;
+
+    .difficulty {
+        margin: 10px auto;
+        text-align: center;
+
+        .radio-box {
+            display: flex;
+            margin: 10px 0;
+
+            .radio-field {
+                margin: 0 10px;
+            }
+        }
+    }
 
     h1 {
         margin: auto;
         text-transform: uppercase;
+        text-align: center;
     }
 
     .btn {
@@ -51,6 +65,7 @@
         margin: auto;
         font-size: 30px;
         margin-top: 50px;
+        text-align: center;
 
         div:nth-child(2) {
             font-weight: bolder;
@@ -62,7 +77,6 @@
 
     .scores {
         display: flex;
-
         margin-top: 200px;
 
         .trick {
@@ -105,8 +119,8 @@
             transform: rotate(460deg);
         }
     }
-    
-    
+
+
 }
 
 .log {
@@ -115,33 +129,33 @@
     flex-wrap: wrap;
     justify-content: space-between;
     position: absolute;
-    top:75vh;
+    top: 75vh;
     left: 0;
     width: 50%;
     transform: translateX(50%);
+
     button {
         margin-left: 50px;
-        // margin-bottom: 0;
         width: 3%;
         height: 5%;
         transform: rotate(90deg);
         background-color: silver;
         border-style: none;
-        // padding: 0;
     }
-    .num-of-games{
+
+    .num-of-games {
         width: 15%;
     }
+
     .log-display {
         width: 100%;
-       
-        padding: 50px 0;
-      
+        padding: 0;
         background-color: rgb(119, 213, 240);
         margin-top: 20px;
-      
         display: none;
-        p{
+
+        p {
             text-align: center;
         }
-}}
+    }
+}

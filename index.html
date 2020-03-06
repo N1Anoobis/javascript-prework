@@ -10,6 +10,24 @@
 
 <body>
 	<div class="container">
+		<div id="difficulty" class="difficulty">
+			<p>Game difficulty</p>
+			<div class="radio-box">
+				<div class="radio-field">
+					<input type="radio" name="difficulty" id="radioEasy" value="easy">
+					<label for="radioEasy">Easy</label>
+				</div>
+				<div class="radio-field">
+					<input type="radio" name="difficulty" id="radioNormal" value="normal" checked>
+					<label for="radioNormal">Normal</label>
+				</div>
+				<div class="radio-field">
+					<input type="radio" name="difficulty" id="radioHard" value="hard">
+					<label for="radioHard">Hard</label>
+				</div>
+			</div>
+		</div>
+
 		<h1>Kliknij aby zagrac</h1>
 		<div class="btn" id="buttons">
 			<button id="play-paper">papier</button>
@@ -19,9 +37,6 @@
 		</div>
 		<div class="msg" id="messages"></div>
 		<div id="loader" class="sp-vortex"></div>
-
-		
-
 
 		<div id="scores" class="scores">
 			<div class="trick">Wins:
@@ -34,11 +49,12 @@
 				<p id="draws">0</p>
 			</div>
 		</div>
+
 		<section class="log">
 			<button id="log">></button>
-			<div id="num" class="num-of-games">Games:<p id="num-p">0</p></div>
+			<div id="num" class="num-of-games">Games:<p id="num-p">0</p>
+			</div>
 			<div class="log-display" id="myDIV"></div>
-			
 		</section>
 
 	</div>

@@ -1,4 +1,27 @@
+let difficulty = '';
+const playersMoves = [];
+const GeneralArray = [];
+let games = 0;
+let wins = 0;
+let draws = 0;
+let losses = 0;
+
 function playGame(playerInput) {
+
+    //beagining of program
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    clearMessages()
+
+    //player choise passed to getMoveName
+    let playerMove = getMoveName(playerInput);
+
+    //computer choise passed to getMoveName
+    let computerMove = getMoveName(randomNumber);
+
+    // player and computer args passed to displayResult
+    displayResult(computerMove, playerMove, difficulty);
+
+    //main function
     function getMoveName(argMoveId) {
 
         if (argMoveId == 1) {
@@ -9,109 +32,107 @@ function playGame(playerInput) {
             return 'nozyce';
         }
     }
-    //
-    function displayResult(argComputerMove, argPlayerMove) {
-        printMessage(`Zagrałem ${argComputerMove}, a Ty ${argPlayerMove}`);
+    //display result on all difficultys levels 
+    function displayResult(argComputerMove, argPlayerMove, difficulty) {
+        if (difficulty == 'hard' && argComputerMove == argPlayerMove) {
+            printMessage('Przegrywasz');
+            if (argPlayerMove == 'papier') {
+                argComputerMove = 'nozyce'
+            }
+            if (argPlayerMove == 'kamień') {
+                argComputerMove = 'papier'
+            }
+            if (argPlayerMove == 'nozyce') {
+                argComputerMove = 'kamień'
+            }
+            // printMessage(`Zagrałem ${argComputerMove}, a Ty ${argPlayerMove}`);
+            counter('lose');
+            addToArray()
+            return
+        }
+        if (difficulty == 'easy' && argComputerMove == argPlayerMove) {
+            printMessage('Ty wygrywasz!');
+            if (argPlayerMove == 'papier') {
+                argComputerMove = 'kamień'
+            }
+            if (argPlayerMove == 'kamień') {
+                argComputerMove = 'nozyce'
+            }
+            if (argPlayerMove == 'nozyce') {
+                argComputerMove = 'papier'
+            }
+            // printMessage(`Zagrałem ${argComputerMove}, a Ty ${argPlayerMove}`);
+            counter('win');
+            addToArray()
+            return
+        } else
 
         if (argComputerMove == argPlayerMove) {
             printMessage('Remis!');
             counter('draw');
-
+            addToArray()
         } else if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
             printMessage('Ty wygrywasz!');
             counter('win');
+            addToArray()
         } else if (argComputerMove == 'papier' && argPlayerMove == 'nozyce') {
             printMessage('Ty wygrywasz!');
             counter('win');
+            addToArray()
         } else if (argComputerMove == 'nozyce' && argPlayerMove == 'kamień') {
             printMessage('Ty wygrywasz!');
             counter('win');
+            addToArray()
         } else {
             printMessage('Przegrywasz');
             counter('lose');
+            addToArray()
+            return
         }
-        playersMoves.push([argComputerMove, argPlayerMove]);
-        playersMoves.forEach((item, key) => {
-            item.id = key;
-            // document.getElementById("myDIV").appendChild(item)
 
-        })
+        function addToArray() {
+            printMessage(`Zagrałem ${argComputerMove}, a Ty ${argPlayerMove}`);
+            // push moves into array and add id to it
+            playersMoves.push([argComputerMove, argPlayerMove]);
+            playersMoves.forEach((item, key) => {
+                item.id = key;
+            })
+        }
     }
-
-
-
+    //score counter
     function counter(score) {
-        // games += 1;
         let setGames = document.getElementById("num-p");
         setGames.innerHTML = games += 1;
-        console.log(games)
         if (score === 'win') {
             let setWins = document.getElementById("wins");
             setWins.innerHTML = wins += 1;
         } else if (score === 'lose') {
-
             let setLosses = document.getElementById("losses");
             setLosses.innerHTML = losses += 1;
         } else if (score === 'draw') {
             let setDraws = document.getElementById("draws");
             setDraws.innerHTML = draws += 1;
         }
+        //add date and display it
         var paragrafMsg = document.createElement("p");
         var date = new Date();
         // get the date as a string
         var n = date.toDateString();
         // get the time as a string
         var time = date.toLocaleTimeString();
-
-        // log the date in the browser console
-        // console.log('date:', n);
-        // log the time in the browser console
-        // console.log('time:', time);
         paragrafMsg.innerHTML = n + "" + time + "" + " " + score;
         document.getElementById("myDIV").appendChild(paragrafMsg);
+        //add results in to array with id
         GeneralArray.push(paragrafMsg);
-        // GeneralArray.push(...playersMoves)
-        // paragrafMsg.textContent = "";
-
         GeneralArray.forEach((item, key) => {
             item.id = key;
             document.getElementById("myDIV").appendChild(item)
-
         })
     }
-
-
-
-    //beagining of program
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    clearMessages()
-
-    // console.log(games)
-    //player choise passed to getMoveName
-    let playerMove = getMoveName(playerInput);
-
-
-    //computer choise passed to getMoveName
-    let computerMove = getMoveName(randomNumber);
-
-
-    // player and computer args passed to displayResult
-    displayResult(computerMove, playerMove);
-
-
 }
 
-function log() {
-   
-}
-
-let games = 0;
-let wins = 0;
-let draws = 0;
-let losses = 0;
-// enent listiners
+// evenent listiners for buttons
 document.getElementById('play-rock').addEventListener('click', function () {
-
     loaderDelay()
     playGame(1);
 });
@@ -123,27 +144,7 @@ document.getElementById('play-scissors').addEventListener('click', function () {
     loaderDelay()
     playGame(3);
 });
-
-document.getElementById('log').addEventListener('click',
-    function () {
-        var x = document.getElementById("myDIV");
-        let btn = document.getElementById("log");
-        if (x.style.display === "block") {
-            console.log(x.display)
-            x.style.display = "none";
-            
-           
-            btn.style.transform = 'rotate(-270deg)';
-        } else {
-            x.style.display = "block";
-            // let btn = document.getElementById("log");
-            btn.style.transform = 'rotate(270deg)';
-        }
-
-    });
-
-
-
+// funcion delay loader 
 function loaderDelay() {
     document.getElementById("scores").style.display = "none";
     document.getElementById("messages").style.display = "none";
@@ -153,30 +154,27 @@ function loaderDelay() {
         document.getElementById("messages").style.display = "block";
         document.getElementById("loader").style.display = "none"
     }, 1000);
-    // function alertConsole() {
-    //     alert(`${playersMoves[e.target.id]}`) 
 }
-document.getElementById('myDIV').addEventListener
 
-// document.querySelectorAll('.log-display').addEventListener
-('click', function (e) {
-    // console.log(e.target)
+// evenent listiners for game results log
+document.getElementById('log').addEventListener('click',
+    function () {
+        var x = document.getElementById("myDIV");
+        let btn = document.getElementById("log");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+            btn.style.transform = 'rotate(-270deg)';
+        } else {
+            x.style.display = "block";
+            btn.style.transform = 'rotate(270deg)';
+        }
+    });
 
-    // if (!e.target) {
-    //     return;
-    // }
-
-    // if (e.target.matches('p')) {
-
+// evenent listiners used for display of results stored in array
+document.getElementById('myDIV').addEventListener('click', function (e) {
     alert(`computer move: ${playersMoves[e.target.id][0]}, player move: ${playersMoves[e.target.id][1]}`)
-    // confirm(`${GeneralArray[e.target.id].innerText}`)
-    // }
-
-
 });
-// };
-
-
-
-const playersMoves = [];
-const GeneralArray = [];
+// evenent listiners for game difficulty level
+document.getElementById('difficulty').addEventListener('change', function (e) {
+    difficulty = e.target.value;
+});
