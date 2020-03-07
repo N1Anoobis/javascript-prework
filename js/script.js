@@ -120,13 +120,13 @@ function playGame(playerInput) {
         var n = date.toDateString();
         // get the time as a string
         var time = date.toLocaleTimeString();
-        paragrafMsg.innerHTML = n + "" + time + "" + " " + score;
-        document.getElementById("myDIV").appendChild(paragrafMsg);
+        paragrafMsg.innerHTML = n + " " + time + " " + " " + score;
+        document.getElementById("my-div").appendChild(paragrafMsg);
         //add results in to array with id
         GeneralArray.push(paragrafMsg);
         GeneralArray.forEach((item, key) => {
             item.id = key;
-            document.getElementById("myDIV").appendChild(item)
+            document.getElementById("my-div").appendChild(item)
         })
     }
 }
@@ -159,7 +159,7 @@ function loaderDelay() {
 // evenent listiners for game results log
 document.getElementById('log').addEventListener('click',
     function () {
-        var x = document.getElementById("myDIV");
+        var x = document.getElementById("my-div");
         let btn = document.getElementById("log");
         if (x.style.display === "block") {
             x.style.display = "none";
@@ -171,7 +171,7 @@ document.getElementById('log').addEventListener('click',
     });
 
 // evenent listiners used for display of results stored in array
-document.getElementById('myDIV').addEventListener('click', function (e) {
+document.getElementById('my-div').addEventListener('click', function (e) {
     alert(`computer move: ${playersMoves[e.target.id][0]}, player move: ${playersMoves[e.target.id][1]}`)
 });
 // evenent listiners for game difficulty level
